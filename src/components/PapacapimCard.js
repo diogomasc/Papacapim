@@ -1,57 +1,71 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import DefaultUserIcon from "../assets/DefaultUserIcon.png";
+import { useNavigation } from "@react-navigation/native";
 
 const PapacapimCard = ({
-	id,
-	name,
-	verified,
-	papacapimContent,
-	imageUri,
-	profileUri,
-	timestamp,
+	idUserName,
+	nameUser,
+	contentPostPapacapim,
+	imageOfPostUri,
+	imageOfUserProfileUri,
+	timestampText,
 	likesCount,
-	republicationsCount,
-	repliesCount,
+	commentsCount,
 }) => {
+	const navigation = useNavigation();
+
 	return (
-		<View style={styles.cardContainer}>
-			<View style={styles.profileContainer}>
+		<TouchableOpacity
+			style={styles.card}
+			onPress={() =>
+				navigation.navigate("PostDetails", {
+					idUserName,
+					nameUser,
+					contentPostPapacapim,
+					imageOfPostUri,
+					imageOfUserProfileUri,
+					timestampText,
+					likesCount,
+					commentsCount,
+				})
+			}
+		>
+			<View style={styles.profileWrapper}>
 				<Image
-					style={styles.profileImage}
-					source={{ uri: profileUri ?? DefaultUserIcon }}
+					style={styles.profilePicture}
+					source={{ uri: imageOfUserProfileUri ?? DefaultUserIcon }}
 				/>
 			</View>
-			<View style={styles.contentContainer}>
-				<View style={styles.headerContainer}>
-					<View style={styles.userInfoContainer}>
-						<Text style={styles.userName}>{name}</Text>
-						{verified && (
-							<MaterialIcons name="verified" color="white" size={20} />
-						)}
-						<Text style={styles.userId}>@{id}</Text>
-						<Text style={styles.timestamp}>· {timestamp}</Text>
+			<View style={styles.contentWrapper}>
+				<View style={styles.header}>
+					<View style={styles.userInfo}>
+						<Text style={styles.userName}>{nameUser}</Text>
+						<Text style={styles.userHandle}>@{idUserName}</Text>
+						<Text style={styles.timestampText}>· {timestampText}</Text>
 					</View>
 					<MaterialCommunityIcons name="dots-vertical" color="gray" size={20} />
 				</View>
-				<View style={styles.papacapimContainer}>
-					<Text style={styles.papacapimText}>{papacapimContent}</Text>
-					{imageUri && (
-						<Image style={styles.papacapimImage} source={{ uri: imageUri }} />
+				<View style={styles.papacapimContent}>
+					<Text style={styles.papacapimBody}>{contentPostPapacapim}</Text>
+					{imageOfPostUri && (
+						<Image
+							style={styles.papacapimImage}
+							source={{ uri: imageOfPostUri }}
+						/>
 					)}
 				</View>
-				<View style={styles.actionContainer}>
+				<View style={styles.actionButtons}>
 					<ActionIcon
 						iconName="message-reply-outline"
 						iconColor="gray"
-						actionCount={repliesCount}
+						actionCount={commentsCount}
 					/>
 					<ActionIcon
 						iconName="repeat"
 						iconColor="gray"
-						actionCount={republicationsCount}
+						size={20}
+						actionCount={commentsCount}
 					/>
 					<ActionIcon
 						iconName="heart-outline"
@@ -65,85 +79,85 @@ const PapacapimCard = ({
 					/>
 				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 	);
 };
 
 const ActionIcon = ({ iconName, iconColor, actionCount }) => (
-	<View style={styles.iconContainer}>
+	<View style={styles.iconWrapper}>
 		<MaterialCommunityIcons name={iconName} color={iconColor} size={20} />
-		<Text style={styles.actionCountText}>{actionCount}</Text>
+		<Text style={styles.countText}>{actionCount}</Text>
 	</View>
 );
 
 export default PapacapimCard;
 
 const styles = StyleSheet.create({
-	cardContainer: {
+	card: {
 		flexDirection: "row",
 		paddingBottom: 5,
 		borderBottomColor: "#2A2E30",
 		borderBottomWidth: 1,
+		backgroundColor: "#1E1E1E",
+		margin: 10,
+		borderRadius: 10,
+		padding: 10,
 	},
-	profileContainer: {
+	profileWrapper: {
 		margin: 8,
 	},
-	profileImage: {
+	profilePicture: {
 		height: 35,
 		width: 35,
 		borderRadius: 15,
 	},
-	contentContainer: {
+	contentWrapper: {
 		flex: 1,
 		paddingVertical: 6,
 		marginLeft: 5,
 	},
-	headerContainer: {
+	header: {
 		flexDirection: "row",
 		justifyContent: "space-between",
 	},
-	userInfoContainer: {
+	userInfo: {
 		flexDirection: "row",
 		alignItems: "center",
 	},
 	userName: {
-		color: "#E7E9EA",
 		fontWeight: "bold",
+		color: "white",
 		marginRight: 5,
 	},
-	userId: {
-		marginLeft: 5,
+	userHandle: {
 		color: "gray",
 	},
-	timestamp: {
-		marginLeft: 5,
+	timestampText: {
 		color: "gray",
 	},
-	papacapimContainer: {
-		paddingRight: 15,
-		marginTop: 10,
+	papacapimContent: {
+		marginTop: 5,
+		marginBottom: 8,
 	},
-	papacapimText: {
-		color: "#DDDFDF",
+	papacapimBody: {
+		color: "white",
 	},
 	papacapimImage: {
-		height: 180,
 		width: "100%",
+		height: 200,
+		marginTop: 5,
 		borderRadius: 10,
-		marginTop: 10,
 	},
-	actionContainer: {
-		marginTop: 10,
+	actionButtons: {
 		flexDirection: "row",
-		justifyContent: "space-between",
-		marginRight: 15,
+		justifyContent: "space-around",
 	},
-	iconContainer: {
+	iconWrapper: {
 		flexDirection: "row",
 		alignItems: "center",
 	},
-	actionCountText: {
-		marginLeft: 5,
+	countText: {
 		color: "gray",
+		marginLeft: 5,
 	},
 });

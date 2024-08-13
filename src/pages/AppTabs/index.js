@@ -24,7 +24,7 @@ const AppTabs = () => {
 					borderTopColor: "#6B6572",
 					paddingBottom: 5,
 				},
-				// tabBarShowLabel: false, // Ocultar o nome da aba
+				tabBarShowLabel: false, // Ocultar o nome da aba
 				tabBarActiveTintColor: "#FCFCFC",
 				headerStyle: {
 					backgroundColor: "#101010",

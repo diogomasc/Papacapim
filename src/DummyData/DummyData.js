@@ -1,92 +1,90 @@
 export const DummyData = [
 	{
-		id: "lucasmontado",
-		name: "Lucas Montado",
-		tweet:
+		idUserName: "lucasmontado",
+		nameUser: "Lucas Montado",
+		contentPostPapacapim:
 			"red-black tree é conhecimento essencial pra javeiro em leet code já rodei em entrevista ao usar HashMap sem explicar quando ele muda de Linked list pra red-black tree",
-		verified: false,
-		image: null,
-		prof: "https://media.licdn.com/dms/image/C4D03AQGLJF2FkDxn8Q/profile-displayphoto-shrink_400_400/0/1584616292766?e=1729123200&v=beta&t=XtCgX-STtx5UOhqap6wHq2ngnP4doL6z6muZktfmuDU",
-		like: "300",
-		rt: "80",
-		reply: "20",
-		time: "5h",
+		imageOfPostUri: null,
+		imageOfUserProfileUri:
+			"https://media.licdn.com/dms/image/C4D03AQGLJF2FkDxn8Q/profile-displayphoto-shrink_400_400/0/1584616292766?e=1729123200&v=beta&t=XtCgX-STtx5UOhqap6wHq2ngnP4doL6z6muZktfmuDU",
+		likesCount: "300",
+		commentsCount: "20",
+		timestampText: "5h",
 	},
 	{
-		id: "animesvibes__",
-		name: "anime papacapim",
-		tweet:
+		idUserName: "animesvibes__",
+		nameUser: "anime papacapim",
+		contentPostPapacapim:
 			"ouro = ouro prata = ouro bronze = ouro PARABÉNS SELEÇÃO BRASILEIRA DE FUTEBOL E VÔLEI VCS SÃO OUROOOOOO",
-		image: null,
-		verified: false,
-		prof: "https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
-		like: "450",
-		rt: "120",
-		reply: "35",
-		time: "3d",
+		imageOfPostUri: null,
+		imageOfUserProfileUri:
+			"https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
+		likesCount: "450",
+		commentsCount: "35",
+		timestampText: "3d",
 	},
 	{
-		id: "dev_master",
-		name: "Roberto Costa",
-		tweet:
+		idUserName: "dev_master",
+		nameUser: "Roberto Costa",
+		contentPostPapacapim:
 			"O Notebook LM do Google é surpreendentemente bom. Use-o para organizar dados, conversar com seus PDFs e construir seu 'segundo cérebro'. Gratuito, ainda experimental, mas muito impressionante até agora.",
-		verified: false,
-		image: "https://pbs.twimg.com/media/GANgVAyWwAAluWv?format=jpg&name=medium",
-		prof: "https://uploads.jovemnerd.com.br/wp-content/uploads/2023/01/animes_para_iniciantes_capa__0k2h30w20.jpg?ims=1210x544/filters:quality(75)",
-		like: "850",
-		rt: "120",
-		reply: "65",
-		time: "8d",
+		imageOfPostUri:
+			"https://pbs.twimg.com/media/GANgVAyWwAAluWv?format=jpg&name=medium",
+		imageOfUserProfileUri:
+			"https://uploads.jovemnerd.com.br/wp-content/uploads/2023/01/animes_para_iniciantes_capa__0k2h30w20.jpg?ims=1210x544/filters:quality(75)",
+		likesCount: "850",
+		commentsCount: "65",
+		timestampText: "8d",
 	},
 	{
-		id: "gustavo_guanabara",
-		name: "Gustavo Guanabara",
-		tweet:
+		idUserName: "gustavo_guanabara_prof_dev",
+		nameUser: "Gustavo Guanabara",
+		contentPostPapacapim:
 			"Você conhece o cara por trás (lá ele) do Mano Deyvin @deyvin? Conheça toda a trajetória e experiência do Deyvid Nascimento no podcast dessa semana 🖖",
-		verified: true,
-		image:
+		imageOfPostUri:
 			"https://i.ytimg.com/vi/g-BjJmbvQZ0/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAQWR5elIgYWD70RpQqJEapuusBZg",
-		prof: "https://pbs.twimg.com/profile_images/961605799830347776/Oy9Amu3w_400x400.jpg",
-		like: "2K",
-		rt: "150",
-		reply: "75",
-		time: "1d",
+		imageOfUserProfileUri:
+			"https://pbs.twimg.com/profile_images/961605799830347776/Oy9Amu3w_400x400.jpg",
+		likesCount: "2K",
+		commentsCount: "75",
+		timestampText: "1d",
 	},
 	{
-		id: "gatinarios",
-		name: "gatos fazendo gatices",
-		tweet: null,
-		verified: false,
-		image: "https://pbs.twimg.com/media/GUqd6ouWQAAdpZ3?format=jpg&name=small",
-		prof: "https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
-		like: "150",
-		rt: "50",
-		reply: "12",
-		time: "7d",
+		idUserName: "gatinarios",
+		nameUser: "gatos fazendo gatices",
+		contentPostPapacapim: null,
+		imageOfPostUri:
+			"https://pbs.twimg.com/media/GUqd6ouWQAAdpZ3?format=jpg&name=small",
+		imageOfUserProfileUri:
+			"https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
+		likesCount: "150",
+		commentsCount: "12",
+		timestampText: "7d",
 	},
 	{
-		id: "animesvibes__",
-		name: "anime papacapim",
-		tweet: "Eu não tenho a menor maturidade pro anime da menina cervo",
-		image: "https://pbs.twimg.com/media/GULESFFXEAA_7cd?format=jpg&name=small",
-		verified: false,
-		prof: "https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
-		like: "450",
-		rt: "120",
-		reply: "35",
-		time: "3d",
+		idUserName: "animesvibes__",
+		nameUser: "anime papacapim",
+		contentPostPapacapim:
+			"Eu não tenho a menor maturidade pro anime da menina cervo",
+		imageOfPostUri:
+			"https://pbs.twimg.com/media/GULESFFXEAA_7cd?format=jpg&name=small",
+		imageOfUserProfileUri:
+			"https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
+		likesCount: "450",
+		commentsCount: "35",
+		timestampText: "3d",
 	},
 	{
-		id: "gatinarios",
-		name: "gatos fazendo gatices",
-		tweet:
+		idUserName: "gatinarios",
+		nameUser: "gatos fazendo gatices",
+		contentPostPapacapim:
 			"gato  barrigudo  burro  enxeu  a barriga  De  mexerica  i  nao  consegue  mais  levanta  com  esse  bucho  avantajado",
-		verified: false,
-		image: "https://pbs.twimg.com/media/GRheC3bXgAAUgWy?format=jpg&name=medium",
-		prof: "https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
-		like: "150",
-		rt: "50",
-		reply: "12",
-		time: "7d",
+		imageOfPostUri:
+			"https://pbs.twimg.com/media/GRheC3bXgAAUgWy?format=jpg&name=medium",
+		imageOfUserProfileUri:
+			"https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
+		likesCount: "150",
+		commentsCount: "12",
+		timestampText: "7d",
 	},
 ];

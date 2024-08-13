@@ -1,27 +1,52 @@
-# Papacapim - Rede Social em Desenvolvimento
+# Papacapim - Plataforma de Microblogging em Desenvolvimento
 
-Papacapim é um projeto de aplicativo de rede social em desenvolvimento, com a proposta de criar uma nova plataforma de microblogging semelhante ao Twitter. Este projeto está sendo desenvolvido durante a disciplina de Desenvolvimento Mobile 2024.1 e será apresentado ao IFBA no final do semestre.
+**Papacapim** é um projeto de aplicativo de rede social em desenvolvimento, com o objetivo de criar uma plataforma de microblogging semelhante ao Twitter. Este projeto está sendo desenvolvido durante a disciplina de Desenvolvimento Mobile 2024.1 e será apresentado ao IFBA no final do semestre.
 
-## Visão Geral
+## Visão geral
 
-Papacapim permite que os usuários publiquem postagens curtas, compartilhem imagens, curtam e comentem em postagens de outros usuários. A plataforma está sendo desenvolvida com o objetivo de explorar conceitos de desenvolvimento mobile, design de interfaces e integração com back-end.
+Papacapim permite que os usuários publiquem postagens curtas, compartilhem imagens, curtam, comentem em postagens de outros usuários, e realizem diversas interações sociais. O foco principal é explorar conceitos de desenvolvimento mobile, design de interfaces e integração com back-end. Vale ressaltar que Papacapim é um projeto de pequena escala, sem foco em escalabilidade ou suporte a um grande número de usuários.
 
-## Tecnologias Utilizadas
+## Funcionalidades principais que serão implementadas
+
+- **Efetuar registros**: Permite que novos usuários se registrem na plataforma.
+- **Login**: Acesso de usuários existentes à plataforma.
+- **Alterar dados**: Usuários podem modificar suas informações pessoais.
+- **Excluir conta**: Opção para remoção completa da conta do usuário.
+- **Buscar usuário**: Ferramenta de pesquisa para encontrar outros usuários na plataforma.
+- **Postagem**: Criação e compartilhamento de postagens curtas com envio de imagem.
+- **Seguir/Deixar de seguir**: Opção de seguir ou deixar de seguir outros usuários.
+- **Responder postagens**: Interação direta com postagens de outros usuários.
+- **Excluir postagens**: Remoção de postagens criadas.
+- **Curtir/Descurtir postagens**: Interações de engajamento com postagens.
+
+## Principais telas do aplicativo
+
+1. **Tela de Login**
+2. **Tela de Cadastro**
+3. **Tela de Feed**
+4. **Tela de Perfil do Usuário**
+5. **Tela de Alteração de Dados do Usuário**
+6. **Tela de Postagem**
+
+## Tecnologias utilizadas
 
 - **React Native**: Framework principal para o desenvolvimento do aplicativo.
 - **JavaScript**: Linguagem de programação usada para escrever o código do app.
 - **Expo**: Ferramenta utilizada para facilitar o desenvolvimento e a distribuição do aplicativo.
-- **React Navigation**: Biblioteca para navegação entre as telas do aplicativo e criar as rotas.
+- **React Navigation**: Biblioteca para navegação entre as telas do aplicativo e criação de rotas.
 - **Git**: Controle de versão para gerenciar o código-fonte.
 - **GitHub**: Plataforma para hospedar o repositório do projeto.
 
-## Como Testar o Aplicativo
+## Como testar o aplicativo
 
 ### Pré-requisitos:
 
-- **Node.js**: Certifique-se de ter o Node.js instalado em sua máquina.
-- **Expo CLI**: Instalado globalmente através do comando `npm install -g expo-cli`.
-- **Git**: Para clonar o repositório.
+- **Node.js**: Certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina.
+- **Expo CLI**: Instale globalmente através do comando:
+  ```bash
+  npm install -g expo-cli
+  ```
+- **Git**: Necessário para clonar o repositório.
 
 ### Passos para Testar:
 
@@ -33,20 +58,38 @@ Papacapim permite que os usuários publiquem postagens curtas, compartilhem imag
    ```
 
 2. **Instale as Dependências**:
-   - Execute o seguinte comando para instalar as dependências do projeto.
+   - Execute o seguinte comando para instalar todas as dependências do projeto.
    ```bash
    npm install
    ```
 
-3. **Inicie o Aplicativo**:
-   - Inicie o servidor de desenvolvimento do Expo.
+   - Para instalar uma dependência específica, utilize:
    ```bash
-   expo start
+   npm install <nome-da-dependencia>
    ```
-   - Utilize o aplicativo Expo Go no seu dispositivo móvel para escanear o QR code gerado ou execute o app em um emulador.
 
-4. **Navegue pelo Aplicativo**:
-   - Explore as funcionalidades disponíveis, crie postagens, visualize detalhes dos posts e interaja com as postagens.
+3. **Inicie o Aplicativo**:
+   - Inicie o servidor de desenvolvimento do Expo com o comando:
+   ```bash
+   npm start
+   ```
+   - Ou para limpar o cache antes de iniciar:
+   ```bash
+   npx expo start -c
+   ```
+
+4. **Teste o Dispositivo Virtual**:
+   - Para verificar se o seu dispositivo virtual está configurado corretamente, execute o seguinte comando no terminal:
+   ```bash
+   adb devices
+   ```
+   - O comando exibirá uma lista de dispositivos conectados. Se o dispositivo virtual estiver funcionando corretamente, você verá um dispositivo listado.
+
+5. **Parar a Execução**:
+   - Para parar a execução do aplicativo, utilize o atalho:
+   ```bash
+   Ctrl + C
+   ```
 
 ## Contribuições
 
@@ -58,7 +101,7 @@ Este projeto é apenas para fins educacionais e não possui uma licença aberta.
 
 Papacapim está em constante desenvolvimento. Esta versão é uma prova de conceito e pode sofrer alterações significativas ao longo do tempo. Fique atento às atualizações e melhorias futuras!
 
---- 
+---
 Desenvolvido por Diogo Mascarenhas durante a disciplina de Desenvolvimento Mobile 2024.1 - IFBA.
 
 <h2>Telas Atuais</h2>

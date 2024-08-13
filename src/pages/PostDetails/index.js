@@ -120,16 +120,20 @@ const styles = StyleSheet.create({
 	},
 	userInfo: {
 		flex: 1,
+		flexDirection: "row",
 	},
 	userName: {
 		fontWeight: "bold",
 		color: "white",
+		marginLeft: 5,
 	},
 	userHandle: {
 		color: "gray",
+		marginLeft: 5,
 	},
 	timestampText: {
 		color: "gray",
+		marginLeft: 5,
 	},
 	content: {
 		color: "white",

@@ -64,14 +64,14 @@ Desenvolvido por Diogo Mascarenhas durante a disciplina de Desenvolvimento Mobil
 <h2>Telas Atuais</h2>
 
 <div style="display: flex; overflow-x: auto;">
-    <img src="https://github.com/user-attachments/assets/ff0b5a2a-3b18-4244-8506-01d9502334be" alt="Tela 1" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/0007e7a8-9c74-4473-b9c6-6c6f48a0147a" alt="Tela 2" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/4d7f6070-2bd9-4be2-8b8d-bfb4be054102" alt="Tela 3" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/4e248a57-445a-40d6-acda-1ac039578a40" alt="Tela 4" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/3be21dd6-19bf-4c7a-82a3-ebec66666398" alt="Tela 5" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/cea22855-c451-4735-912a-f41a7477534c" alt="Tela 6" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/497e7d6e-e2fc-4dd4-9625-59d79cac88e8" alt="Tela 7" style="height: 500px; margin-right: 10px;">
-    <img src="https://github.com/user-attachments/assets/14d75393-7caa-4478-bbe1-1160b75f4562" alt="Tela 8" style="height: 500px;">
+   <img src="https://github.com/user-attachments/assets/14d75393-7caa-4478-bbe1-1160b75f4562" alt="Tela 1" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/497e7d6e-e2fc-4dd4-9625-59d79cac88e8" alt="Tela 2" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/cea22855-c451-4735-912a-f41a7477534c" alt="Tela 3" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/3be21dd6-19bf-4c7a-82a3-ebec66666398" alt="Tela 4" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/4e248a57-445a-40d6-acda-1ac039578a40" alt="Tela 5" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/4d7f6070-2bd9-4be2-8b8d-bfb4be054102" alt="Tela 6" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/0007e7a8-9c74-4473-b9c6-6c6f48a0147a" alt="Tela 7" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/ff0b5a2a-3b18-4244-8506-01d9502334be" alt="Tela 8" style="height: 500px;"> 
 </div>
 
 

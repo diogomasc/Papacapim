@@ -78,12 +78,22 @@ Papacapim permite que os usuários publiquem postagens curtas, compartilhem imag
    npx expo start -c
    ```
 
-4. **Teste o Dispositivo Virtual**:
-   - Para verificar se o seu dispositivo virtual está configurado corretamente, execute o seguinte comando no terminal:
-   ```bash
-   adb devices
-   ```
-   - O comando exibirá uma lista de dispositivos conectados. Se o dispositivo virtual estiver funcionando corretamente, você verá um dispositivo listado.
+4. **Executando e Testando o Aplicativo no Dispositivo Virtual ou Físico**
+
+4.1 **Usando o Expo para Ler o QR Code**:
+   - Se você estiver usando o [Expo](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&pli=1) para testar o aplicativo:
+     1. O Expo CLI irá gerar um QR Code.
+     2. Abra o aplicativo **Expo Go** no seu dispositivo móvel.
+     3. Escaneie o QR Code exibido no terminal ou na página web que abrir.
+     4. O aplicativo será carregado automaticamente no seu dispositivo.
+
+4.2 **Usando o Emulador Android**:
+   - Para testar seu aplicativo em um emulador Android:
+     1. Certifique-se de que o [Android Studio](https://developer.android.com/studio?hl=pt-br) esteja instalado e configurado no seu ambiente.
+     2. No Android Studio, abra o AVD Manager e inicie um dispositivo virtual (emulador).
+     3. Com o emulador em execução, volte ao terminal e execute o comando `adb devices` para verificar se o emulador foi detectado corretamente.
+     4. Agora, inicie o aplicativo no emulador com o comando `npx react-native run-android` ou digite `A` no terminal.
+     5. O aplicativo será compilado e executado no emulador Android.
 
 5. **Parar a Execução**:
    - Para parar a execução do aplicativo, utilize o atalho:

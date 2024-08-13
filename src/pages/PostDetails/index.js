@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
 	userName: {
 		fontWeight: "bold",
 		color: "white",
-		marginLeft: 5,
+		marginHorizontal: 5,
 	},
 	userHandle: {
 		color: "gray",

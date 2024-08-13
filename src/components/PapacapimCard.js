@@ -42,7 +42,7 @@ const PapacapimCard = ({
 					<View style={styles.userInfo}>
 						<Text style={styles.userName}>{nameUser}</Text>
 						<Text style={styles.userHandle}>@{idUserName}</Text>
-						<Text style={styles.timestampText}>· {timestampText}</Text>
+						<Text style={styles.timestampText}>{timestampText}</Text>
 					</View>
 					<MaterialCommunityIcons name="dots-vertical" color="gray" size={20} />
 				</View>
@@ -127,13 +127,15 @@ const styles = StyleSheet.create({
 	userName: {
 		fontWeight: "bold",
 		color: "white",
-		marginRight: 5,
+		marginHorizontal: 5,
 	},
 	userHandle: {
 		color: "gray",
+		marginLeft: 5,
 	},
 	timestampText: {
 		color: "gray",
+		marginLeft: 5,
 	},
 	papacapimContent: {
 		marginTop: 5,

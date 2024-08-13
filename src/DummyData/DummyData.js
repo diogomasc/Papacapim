@@ -12,18 +12,6 @@ export const DummyData = [
 		timestampText: "5h",
 	},
 	{
-		idUserName: "animesvibes__",
-		nameUser: "anime papacapim",
-		contentPostPapacapim:
-			"ouro = ouro prata = ouro bronze = ouro PARABÉNS SELEÇÃO BRASILEIRA DE FUTEBOL E VÔLEI VCS SÃO OUROOOOOO",
-		imageOfPostUri: null,
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
-		likesCount: "450",
-		commentsCount: "35",
-		timestampText: "3d",
-	},
-	{
 		idUserName: "dev_master",
 		nameUser: "Roberto Costa",
 		contentPostPapacapim:
@@ -37,7 +25,7 @@ export const DummyData = [
 		timestampText: "8d",
 	},
 	{
-		idUserName: "gustavo_guanabara_prof_dev",
+		idUserName: "gustavo_guanabara",
 		nameUser: "Gustavo Guanabara",
 		contentPostPapacapim:
 			"Você conhece o cara por trás (lá ele) do Mano Deyvin @deyvin? Conheça toda a trajetória e experiência do Deyvid Nascimento no podcast dessa semana 🖖",
@@ -48,18 +36,6 @@ export const DummyData = [
 		likesCount: "2K",
 		commentsCount: "75",
 		timestampText: "1d",
-	},
-	{
-		idUserName: "gatinarios",
-		nameUser: "gatos fazendo gatices",
-		contentPostPapacapim: null,
-		imageOfPostUri:
-			"https://pbs.twimg.com/media/GUqd6ouWQAAdpZ3?format=jpg&name=small",
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
-		likesCount: "150",
-		commentsCount: "12",
-		timestampText: "7d",
 	},
 	{
 		idUserName: "animesvibes__",

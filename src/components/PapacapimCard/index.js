@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
+import React, { useState } from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const PapacapimCard = ({
 	idUserName,
@@ -10,10 +10,33 @@ const PapacapimCard = ({
 	imageOfPostUri,
 	imageOfUserProfileUri,
 	timestampText,
-	likesCount,
+	likesCount: initialLikesCount,
 	commentsCount,
 }) => {
 	const navigation = useNavigation();
+	const [isLiked, setIsLiked] = useState(false);
+	const [likesCount, setLikesCount] = useState(initialLikesCount);
+
+	const handleLikePress = (event) => {
+		event.stopPropagation();
+		setIsLiked(!isLiked);
+		// setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
+	};
+
+	const handleCommentPress = (event) => {
+		event.stopPropagation();
+		navigation.navigate("PostDetails", {
+			idUserName,
+			nameUser,
+			contentPostPapacapim,
+			imageOfPostUri,
+			imageOfUserProfileUri,
+			timestampText,
+			likesCount,
+			commentsCount,
+			showCommentInput: true,
+		});
+	};
 
 	return (
 		<TouchableOpacity
@@ -28,6 +51,7 @@ const PapacapimCard = ({
 					timestampText,
 					likesCount,
 					commentsCount,
+					showCommentInput: false,
 				})
 			}
 		>
@@ -60,6 +84,7 @@ const PapacapimCard = ({
 						iconName="message-reply-outline"
 						iconColor="gray"
 						actionCount={commentsCount}
+						onPress={handleCommentPress}
 					/>
 					<ActionIcon
 						iconName="repeat"
@@ -68,9 +93,10 @@ const PapacapimCard = ({
 						actionCount={commentsCount}
 					/>
 					<ActionIcon
-						iconName="heart-outline"
-						iconColor="gray"
+						iconName={isLiked ? "heart" : "heart-outline"}
+						iconColor={isLiked ? "red" : "gray"}
 						actionCount={likesCount}
+						onPress={handleLikePress}
 					/>
 					<MaterialCommunityIcons
 						name="share-variant-outline"
@@ -83,11 +109,11 @@ const PapacapimCard = ({
 	);
 };
 
-const ActionIcon = ({ iconName, iconColor, actionCount }) => (
-	<View style={styles.iconWrapper}>
+const ActionIcon = ({ iconName, iconColor, actionCount, onPress }) => (
+	<TouchableOpacity style={styles.iconWrapper} onPress={onPress}>
 		<MaterialCommunityIcons name={iconName} color={iconColor} size={20} />
 		<Text style={styles.countText}>{actionCount}</Text>
-	</View>
+	</TouchableOpacity>
 );
 
 export default PapacapimCard;

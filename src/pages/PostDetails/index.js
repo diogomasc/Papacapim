@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-	View,
-	Text,
 	Image,
+	Keyboard,
 	ScrollView,
 	StyleSheet,
+	Text,
+	TextInput,
 	TouchableOpacity,
+	View,
 } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons"; // Importando os ícones
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const PostDetails = ({ route, navigation }) => {
 	const {
@@ -17,12 +19,53 @@ const PostDetails = ({ route, navigation }) => {
 		imageOfPostUri,
 		imageOfUserProfileUri,
 		timestampText,
-		likesCount,
+		likesCount: initialLikesCount,
 		commentsCount,
+		showCommentInput,
 	} = route.params;
+
+	const [isLiked, setIsLiked] = useState(false);
+	const [likesCount, setLikesCount] = useState(initialLikesCount);
+	const [showCommentField, setShowCommentField] = useState(showCommentInput);
+	const [comment, setComment] = useState("");
+	const [commentInputHeight, setCommentInputHeight] = useState(40);
+
+	useEffect(() => {
+		const hideKeyboard = Keyboard.addListener("keyboardDidHide", () => {
+			setShowCommentField(false);
+		});
+
+		return () => {
+			hideKeyboard.remove();
+		};
+	}, []);
 
 	const handleBackPress = () => {
 		navigation.goBack();
+	};
+
+	const handleLikePress = () => {
+		setIsLiked(!isLiked);
+		// setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
+	};
+
+	const handleCommentPress = () => {
+		setShowCommentField(true);
+	};
+
+	const handleCommentChange = (text) => {
+		setComment(text);
+	};
+
+	const handleContentSizeChange = (event) => {
+		setCommentInputHeight(Math.max(40, event.nativeEvent.contentSize.height));
+	};
+
+	const handleCommentSubmit = () => {
+		// Implementar lógica de envio do comentário
+		console.log("Comentário enviado:", comment);
+		setComment("");
+		setShowCommentField(false);
 	};
 
 	return (
@@ -50,12 +93,12 @@ const PostDetails = ({ route, navigation }) => {
 				<Image style={styles.postImage} source={{ uri: imageOfPostUri }} />
 			)}
 
-			{/* Botões de Ações */}
 			<View style={styles.actionsContainer}>
 				<ActionIcon
 					iconName="message-reply-outline"
 					iconColor="gray"
 					actionCount={commentsCount}
+					onPress={handleCommentPress}
 				/>
 				<ActionIcon
 					iconName="repeat"
@@ -63,9 +106,10 @@ const PostDetails = ({ route, navigation }) => {
 					actionCount={commentsCount}
 				/>
 				<ActionIcon
-					iconName="heart-outline"
-					iconColor="gray"
+					iconName={isLiked ? "heart" : "heart-outline"}
+					iconColor={isLiked ? "red" : "gray"}
 					actionCount={likesCount}
+					onPress={handleLikePress}
 				/>
 				<MaterialCommunityIcons
 					name="share-variant-outline"
@@ -74,19 +118,37 @@ const PostDetails = ({ route, navigation }) => {
 				/>
 			</View>
 
-			{/* Linha Separadora */}
-			<View style={styles.separator} />
+			{showCommentField && (
+				<View style={styles.commentInputContainer}>
+					<TextInput
+						style={[styles.commentInput, { height: commentInputHeight }]}
+						placeholder="Escreva um comentário..."
+						placeholderTextColor="gray"
+						value={comment}
+						onChangeText={handleCommentChange}
+						multiline
+						onContentSizeChange={handleContentSizeChange}
+						autoFocus
+					/>
+					<TouchableOpacity
+						onPress={handleCommentSubmit}
+						style={styles.commentSubmitButton}
+					>
+						<Text style={styles.commentSubmitButtonText}>Enviar</Text>
+					</TouchableOpacity>
+				</View>
+			)}
 
-			{/* Renderizar os comentários aqui ou outras informações adicionais */}
+			<View style={styles.separator} />
 		</ScrollView>
 	);
 };
 
-const ActionIcon = ({ iconName, iconColor, actionCount }) => (
-	<View style={styles.iconWrapper}>
+const ActionIcon = ({ iconName, iconColor, actionCount, onPress }) => (
+	<TouchableOpacity onPress={onPress} style={styles.iconWrapper}>
 		<MaterialCommunityIcons name={iconName} color={iconColor} size={20} />
 		<Text style={styles.countText}>{actionCount}</Text>
-	</View>
+	</TouchableOpacity>
 );
 
 export default PostDetails;
@@ -163,5 +225,35 @@ const styles = StyleSheet.create({
 		height: 1,
 		backgroundColor: "#2F80ED",
 		marginVertical: 10,
+	},
+	commentInputContainer: {
+		flexDirection: "row",
+		alignItems: "flex-end", // Alterado para alinhar na parte inferior
+		marginTop: 10,
+		marginBottom: 15,
+	},
+	commentInput: {
+		flex: 1,
+		minHeight: 40,
+		maxHeight: 120, // Define uma altura máxima
+		borderColor: "gray",
+		borderWidth: 1,
+		borderRadius: 20,
+		paddingHorizontal: 10,
+		paddingTop: 10, // Adicionado para melhor alinhamento do texto
+		paddingBottom: 10, // Adicionado para melhor alinhamento do texto
+		color: "white",
+		textAlignVertical: "top", // Garante que o texto comece do topo
+	},
+	commentSubmitButton: {
+		marginLeft: 10,
+		padding: 10,
+		backgroundColor: "#2F80ED",
+		borderRadius: 20,
+		alignSelf: "flex-end", // Alinha o botão na parte inferior
+	},
+	commentSubmitButtonText: {
+		color: "white",
+		fontWeight: "bold",
 	},
 });

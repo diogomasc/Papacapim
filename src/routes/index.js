@@ -1,9 +1,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Welcome from "../pages/Welcome";
-import SignIn from "../pages/SignIn";
-import Register from "../pages/Register";
-import PostDetails from "../pages/PostDetails";
 import AppTabs from "../pages/AppTabs";
+import PostDetails from "../pages/PostDetails";
+import Profile from "../pages/Profile";
+import Register from "../pages/Register";
+import Settings from "../pages/Settings";
+import SignIn from "../pages/SignIn";
+import Welcome from "../pages/Welcome";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +35,16 @@ export default function Routes() {
 			<Stack.Screen
 				name="PostDetails"
 				component={PostDetails}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Profile"
+				component={Profile}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Settings"
+				component={Settings}
 				options={{ headerShown: false }}
 			/>
 		</Stack.Navigator>

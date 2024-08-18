@@ -1,36 +1,32 @@
-import { useNavigation } from "@react-navigation/native"; // Importação da navegação
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import {
-	Image, // Importar Image
+	Image,
 	ScrollView,
 	StyleSheet,
 	Text,
-	TextInput,
 	TouchableOpacity,
 	View,
 } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
-import { DummyUserAuth } from "../../DummyData/DummyUserAuth";
-
+import { DummyData, DummyUserAuth } from "../../DummyData/DummyData";
+import TextInputFieldSettings from "../../components/TextInputFieldSettings";
 const Settings = () => {
-	const navigation = useNavigation(); // Inicialização da navegação
+	const navigation = useNavigation();
 	const [userData, setUserData] = useState(DummyUserAuth[0]);
 	const [currentPassword, setCurrentPassword] = useState("");
 	const [newPassword, setNewPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const handleUpdate = () => {
-		// Implementar lógica para atualizar dados
 		console.log("Dados atualizados:", userData);
 	};
 
 	const handleChangePassword = () => {
-		// Implementar lógica para mudar senha
 		console.log("Senha alterada");
 	};
 
 	const handleDeleteAccount = () => {
-		// Implementar lógica para excluir conta
 		console.log("Conta excluída");
 	};
 
@@ -44,7 +40,6 @@ const Settings = () => {
 				<Text style={styles.backButtonText}>Voltar</Text>
 			</TouchableOpacity>
 
-			{/* Exibindo imagem do perfil no topo */}
 			<View style={styles.profileContainer}>
 				<Image
 					source={{ uri: userData.imageOfUserProfileUri }}
@@ -53,81 +48,64 @@ const Settings = () => {
 				<Text style={styles.userName}>{userData.nameUser}</Text>
 			</View>
 
-			{/* Dados do usuário */}
 			<View style={styles.containerForm}>
 				<Text style={styles.message}>Dados do Usuário</Text>
 
-				{/* Nome de Usuário */}
-				<Text style={styles.title}>Nome de Usuário:</Text>
-				<TextInput
-					style={[styles.input, styles.disabledInput]}
-					placeholder="Nome de Usuário"
+				<TextInputFieldSettings
+					label="Nome de Usuário:"
 					value={userData.idUserName}
+					placeholder="Nome de Usuário"
 					editable={false}
+					containerStyle={styles.disabledInput}
 				/>
 
-				{/* Email */}
-				<Text style={styles.title}>Email:</Text>
-				<TextInput
-					style={[styles.input, styles.disabledInput]}
-					placeholder="Email"
+				<TextInputFieldSettings
+					label="Email:"
 					value={userData.email}
+					placeholder="Email"
 					editable={false}
+					containerStyle={styles.disabledInput}
 				/>
 
-				{/* Nome */}
-				<Text style={styles.title}>Nome:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Nome"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Nome:"
 					value={userData.nameUser}
+					placeholder="Nome"
 					onChangeText={(text) => setUserData({ ...userData, nameUser: text })}
 				/>
 
-				{/* Data de Nascimento */}
-				<Text style={styles.title}>Data de Nascimento:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Data de Nascimento"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Data de Nascimento:"
 					value={userData.dateOfBirth}
+					placeholder="Data de Nascimento"
 					onChangeText={(text) =>
 						setUserData({ ...userData, dateOfBirth: text })
 					}
 				/>
 
-				{/* Biografia */}
-				<Text style={styles.title}>Biografia:</Text>
-				<TextInput
-					style={[styles.input, styles.textArea]}
-					placeholder="Biografia"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Biografia:"
 					value={userData.biography}
+					placeholder="Biografia"
 					onChangeText={(text) => setUserData({ ...userData, biography: text })}
 					multiline
 					numberOfLines={4}
+					containerStyle={styles.textArea}
 				/>
 
-				{/* Imagem do Perfil */}
-				<Text style={styles.title}>Imagem do Perfil:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="URL da Imagem do Perfil"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Imagem do Perfil:"
 					value={userData.imageOfUserProfileUri}
+					placeholder="URL da Imagem do Perfil"
 					onChangeText={(text) =>
 						setUserData({ ...userData, imageOfUserProfileUri: text })
 					}
 				/>
 
-				{/* País */}
-				<Text style={styles.title}>País:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="País"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="País:"
 					value={userData.Address[0]?.country || ""}
+					placeholder="País"
 					onChangeText={(text) =>
 						setUserData({
 							...userData,
@@ -136,13 +114,10 @@ const Settings = () => {
 					}
 				/>
 
-				{/* Cidade */}
-				<Text style={styles.title}>Cidade:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Cidade"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Cidade:"
 					value={userData.Address[0]?.city || ""}
+					placeholder="Cidade"
 					onChangeText={(text) =>
 						setUserData({
 							...userData,
@@ -151,13 +126,10 @@ const Settings = () => {
 					}
 				/>
 
-				{/* Estado */}
-				<Text style={styles.title}>Estado:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Estado"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Estado:"
 					value={userData.Address[0]?.state || ""}
+					placeholder="Estado"
 					onChangeText={(text) =>
 						setUserData({
 							...userData,
@@ -166,19 +138,15 @@ const Settings = () => {
 					}
 				/>
 
-				{/* Website */}
-				<Text style={styles.title}>Website:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Website"
-					placeholderTextColor="#6B6572"
+				<TextInputFieldSettings
+					label="Website:"
 					value={userData.externalLink}
+					placeholder="Website"
 					onChangeText={(text) =>
 						setUserData({ ...userData, externalLink: text })
 					}
 				/>
 
-				{/* Botão Atualizar Dados */}
 				<TouchableOpacity
 					style={[styles.button, { backgroundColor: "#2F80ED" }]}
 					onPress={handleUpdate}
@@ -186,36 +154,28 @@ const Settings = () => {
 					<Text style={styles.buttonText}>Atualizar Dados</Text>
 				</TouchableOpacity>
 
-				{/* Divider */}
 				<View style={styles.divider} />
 
-				{/* Editar Senha */}
 				<Text style={styles.message}>Editar Senha</Text>
-				<Text style={styles.title}>Senha Atual:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Senha Atual"
-					placeholderTextColor="#6B6572"
-					secureTextEntry
+				<TextInputFieldSettings
+					label="Senha Atual:"
 					value={currentPassword}
+					placeholder="Senha Atual"
+					secureTextEntry
 					onChangeText={setCurrentPassword}
 				/>
-				<Text style={styles.title}>Nova Senha:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Nova Senha"
-					placeholderTextColor="#6B6572"
-					secureTextEntry
+				<TextInputFieldSettings
+					label="Nova Senha:"
 					value={newPassword}
+					placeholder="Nova Senha"
+					secureTextEntry
 					onChangeText={setNewPassword}
 				/>
-				<Text style={styles.title}>Confirmação da Nova Senha:</Text>
-				<TextInput
-					style={styles.input}
-					placeholder="Confirme Nova Senha"
-					placeholderTextColor="#6B6572"
-					secureTextEntry
+				<TextInputFieldSettings
+					label="Confirmação da Nova Senha:"
 					value={confirmPassword}
+					placeholder="Confirme Nova Senha"
+					secureTextEntry
 					onChangeText={setConfirmPassword}
 				/>
 				<TouchableOpacity
@@ -225,10 +185,8 @@ const Settings = () => {
 					<Text style={styles.buttonText}>Alterar Senha</Text>
 				</TouchableOpacity>
 
-				{/* Divider */}
 				<View style={styles.divider} />
 
-				{/* Excluir Conta */}
 				<TouchableOpacity
 					style={[styles.button, { backgroundColor: "#EB5757" }]}
 					onPress={handleDeleteAccount}
@@ -282,51 +240,32 @@ const styles = StyleSheet.create({
 		borderTopLeftRadius: 25,
 		borderTopRightRadius: 25,
 	},
-	message: {
-		fontSize: 22,
-		fontWeight: "bold",
-		color: "#FFFFFF",
-		marginTop: 20,
-	},
-	title: {
-		fontSize: 16,
-		marginTop: 28,
-		marginBottom: 12,
-		color: "#FFFFFF",
-	},
-	input: {
-		borderBottomWidth: 1,
-		height: 40,
-		marginBottom: 12,
-		fontSize: 14,
-		color: "#FFFFFF",
-	},
 	disabledInput: {
-		backgroundColor: "#2F2F2F",
+		opacity: 0.5,
 	},
 	textArea: {
-		textAlignVertical: "top",
-		height: 80,
+		maxHeight: 120,
+	},
+	message: {
+		color: "#FFFFFF",
+		fontSize: 18,
+		marginBottom: 8,
 	},
 	button: {
-		backgroundColor: "#101010",
-		width: "100%",
-		borderRadius: 16,
-		paddingVertical: 14,
-		marginTop: 14,
-		marginBottom: 14,
-		justifyContent: "center",
+		backgroundColor: "#2F80ED",
+		borderRadius: 10,
+		paddingVertical: 12,
 		alignItems: "center",
+		marginBottom: 12,
 	},
 	buttonText: {
 		color: "#FFFFFF",
-		fontSize: 14,
-		fontWeight: "bold",
+		fontSize: 16,
 	},
 	divider: {
 		height: 1,
-		backgroundColor: "#6B6572",
-		marginVertical: 20,
+		backgroundColor: "#444444",
+		marginVertical: 16,
 	},
 });
 

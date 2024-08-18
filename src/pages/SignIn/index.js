@@ -1,15 +1,8 @@
-import React from "react";
-import {
-	Text,
-	TextInput,
-	View,
-	Alert,
-	StyleSheet,
-	Image,
-	TouchableOpacity,
-} from "react-native";
-import * as Animatable from "react-native-animatable";
 import { useNavigation } from "@react-navigation/native";
+import React from "react";
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
+import TextInputField from "../../components/TextInputField";
 
 const SignIn = () => {
 	const navigation = useNavigation();
@@ -29,11 +22,12 @@ const SignIn = () => {
 				delay={1200}
 				style={styles.containerForm}
 			>
-				<Text style={styles.title}>E-mail:</Text>
-				<TextInput style={styles.input} placeholder="Digite seu e-mail" />
-
-				<Text style={styles.title}>Senha:</Text>
-				<TextInput style={styles.input} placeholder="Digite sua senha" />
+				<TextInputField label="E-mail:" placeholder="Digite seu e-mail" />
+				<TextInputField
+					label="Senha:"
+					placeholder="Digite sua senha"
+					secureTextEntry={true}
+				/>
 
 				<TouchableOpacity
 					style={styles.button}
@@ -57,26 +51,21 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
-
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: "#101010",
 	},
-
 	containerHeader: {
 		marginTop: "14%",
 		marginBottom: "8%",
 		paddingStart: "5%",
 	},
-
 	message: {
 		fontSize: 22,
 		fontWeight: "bold",
 		color: "#FFFFFF",
 	},
-
 	containerForm: {
 		backgroundColor: "#FFFFFF",
 		flex: 1,
@@ -85,20 +74,6 @@ const styles = StyleSheet.create({
 		paddingStart: "5%",
 		paddingEnd: "5%",
 	},
-
-	title: {
-		fontSize: 16,
-		marginTop: 28,
-		marginBottom: 12,
-	},
-
-	input: {
-		borderBottomWidth: 1,
-		heigth: 40,
-		marginBottom: 12,
-		fontSize: 14,
-	},
-
 	button: {
 		backgroundColor: "#101010",
 		width: "100%",
@@ -108,16 +83,16 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 	},
-
 	buttonText: {
 		color: "#FFFFFF",
 		fontSize: 14,
 		fontWeight: "bold",
 	},
-
 	textNewAccunt: {
 		textAlign: "center",
 		fontSize: 14,
 		marginTop: 14,
 	},
 });
+
+export default SignIn;

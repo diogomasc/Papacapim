@@ -13,18 +13,6 @@ export const DummyData = [
 	},
 	{
 		id: "2",
-		idUserName: "dev_master",
-		nameUser: "Roberto Costa",
-		contentPost:
-			"O Notebook LM do Google é surpreendentemente bom. Use-o para organizar dados, conversar com seus PDFs e construir seu 'segundo cérebro'. Gratuito, ainda experimental, mas muito impressionante até agora.",
-		imageOfUserProfileUri:
-			"https://uploads.jovemnerd.com.br/wp-content/uploads/2023/01/animes_para_iniciantes_capa__0k2h30w20.jpg?ims=1210x544/filters:quality(75)",
-		likesCount: "850",
-		commentsCount: "65",
-		timestampText: "8d",
-	},
-	{
-		id: "3",
 		idUserName: "AkitaOnRails",
 		nameUser: "Akitando.com",
 		contentPost:
@@ -36,7 +24,7 @@ export const DummyData = [
 		timestampText: "2d",
 	},
 	{
-		id: "4",
+		id: "3",
 		idUserName: "gustavo_guanabara",
 		nameUser: "Gustavo Guanabara",
 		contentPost:
@@ -50,35 +38,7 @@ export const DummyData = [
 		timestampText: "1d",
 	},
 	{
-		id: "5",
-		idUserName: "animesvibes__",
-		nameUser: "anime papacapim",
-		contentPost:
-			"Eu não tenho a menor maturidade pro anime da menina cervo",
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
-		imageOfPostUri:
-			"https://pbs.twimg.com/media/GULESFFXEAA_7cd?format=jpg&name=small",
-		likesCount: "450",
-		commentsCount: "35",
-		timestampText: "3d",
-	},
-	{
-		id: "6",
-		idUserName: "gatinarios",
-		nameUser: "gatos fazendo gatices",
-		contentPost:
-			"gato  barrigudo  burro  enxeu  a barriga  De  mexerica  i  nao  consegue  mais  levanta  com  esse  bucho  avantajado",
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
-		imageOfPostUri:
-			"https://pbs.twimg.com/media/GRheC3bXgAAUgWy?format=jpg&name=medium",
-		likesCount: "150",
-		commentsCount: "12",
-		timestampText: "7d",
-	},
-	{
-		id: "7",
+		id: "4",
 		idUserName: "AkitaOnRails",
 		nameUser: "Akitando.com",
 		contentPost:
@@ -113,27 +73,6 @@ export const DummyDataUser = {
 		followers: 120,
 		post: ["1"], // IDs dos posts do usuário
 	},
-	"dev_master": {
-		token: "654321",
-		idUserName: "dev_master",
-		nameUser: "Roberto Costa",
-		email: "roberto.costa@me.com",
-		dateOfBirth: "1990-06-25",
-		biography: "Entusiasta de tecnologia e inovação, sempre em busca do próximo grande projeto.",
-		imageOfUserProfileUri:
-			"https://uploads.jovemnerd.com.br/wp-content/uploads/2023/01/animes_para_iniciantes_capa__0k2h30w20.jpg?ims=1210x544/filters:quality(75)",
-		Address: [
-			{
-				country: "Brasil",
-				city: "Rio de Janeiro",
-				state: "RJ",
-			},
-		],
-		webSite: "https://www.linkedin.com/in/dev_master/",
-		following: 80,
-		followers: 60,
-		post: ["2"], // IDs dos posts do usuário
-	},
 	"AkitaOnRails": {
 		token: "789012",
 		idUserName: "AkitaOnRails",
@@ -153,7 +92,7 @@ export const DummyDataUser = {
 		webSite: "https://www.akitando.com",
 		following: 120,
 		followers: 95,
-		post: ["3, 7"], // IDs dos posts do usuário
+		post: ["2, 4"], // IDs dos posts do usuário
 	},
 	"gustavo_guanabara": {
 		token: "345678",
@@ -174,55 +113,11 @@ export const DummyDataUser = {
 		webSite: "https://www.linkedin.com/in/gustavo_guanabara/",
 		following: 200,
 		followers: 150,
-		post: ["4"], // IDs dos posts do usuário
-	},
-	"animesvibes__": {
-		token: "901234",
-		idUserName: "animesvibes__",
-		nameUser: "anime papacapim",
-		email: "anime.papacapim@me.com",
-		dateOfBirth: "1995-12-10",
-		biography: "Amante de animes e cultura pop japonesa.",
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1768756935065534465/uu1ui2HT_400x400.jpg",
-		Address: [
-			{
-				country: "Brasil",
-				city: "São Paulo",
-				state: "SP",
-			},
-		],
-		webSite: "https://www.animesvibes.com",
-		following: 60,
-		followers: 45,
-		post: ["5"], // IDs dos posts do usuário
-	},
-	"gatinarios": {
-		token: "567890",
-		idUserName: "gatinarios",
-		nameUser: "gatos fazendo gatices",
-		email: "gatos@me.com",
-		dateOfBirth: "1992-04-18",
-		biography: "Amo gatos e compartilho suas aventuras e desventuras.",
-		imageOfUserProfileUri:
-			"https://pbs.twimg.com/profile_images/1744991772067962880/t8tNXM2C_400x400.jpg",
-		Address: [
-			{
-				country: "Brasil",
-				city: "Belo Horizonte",
-				state: "MG",
-			},
-		],
-		webSite: "https://www.gatinarios.com",
-		following: 35,
-		followers: 20,
-		post: ["6"], // IDs dos posts do usuário
+		post: ["3"], // IDs dos posts do usuário
 	},
 };
 
-
-
-export const DummyUserAuth = [
+export const DummyUserAuthSession  = [
 	{
 		token: "123456",
 		idUserName: "diogomasc",

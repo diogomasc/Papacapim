@@ -27,6 +27,16 @@ const styles = StyleSheet.create({
 		marginLeft: 10,
 		fontSize: 16,
 	},
+	submitButton: {
+		flexDirection: "row",
+		alignItems: "center",
+	  },
+	  
+	  submitButtonText: {
+		marginRight: 10, // Espaço entre o texto e o ícone
+		fontSize: 16,
+	  },
+			
 	postContent: {
 		flexDirection: "row",
 		alignItems: "flex-start",

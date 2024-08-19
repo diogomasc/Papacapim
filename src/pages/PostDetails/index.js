@@ -9,12 +9,13 @@ import {
   View,
 } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { DummyData } from "../../DummyData/DummyData";
+import { DummyData, DummyDataUser, DummyUserAuthSession } from "../../DummyData/DummyData";
 import styles from "./styles";
 
 const PostDetails = ({ route, navigation }) => {
   const { postId } = route.params;
   const [postData, setPostData] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,16 +25,22 @@ const PostDetails = ({ route, navigation }) => {
   const [comment, setComment] = useState("");
   const [commentInputHeight, setCommentInputHeight] = useState(40);
 
+  const authenticatedUser = DummyUserAuthSession[0];
+
   useEffect(() => {
     const fetchPostData = async () => {
       try {
         setIsLoading(true);
-        // await new Promise(resolve => setTimeout(resolve, 1000));
-        
         const post = DummyData.find(post => post.id === postId);
         if (post) {
           setPostData(post);
           setLikesCount(parseInt(post.likesCount));
+          const user = DummyDataUser[post.idUserName];
+          if (user) {
+            setUserData(user);
+          } else {
+            throw new Error("Usuário não encontrado");
+          }
         } else {
           throw new Error("Post não encontrado");
         }
@@ -43,7 +50,7 @@ const PostDetails = ({ route, navigation }) => {
         setIsLoading(false);
       }
     };
-
+  
     fetchPostData();
   }, [postId]);
 
@@ -59,6 +66,10 @@ const PostDetails = ({ route, navigation }) => {
 
   const handleBackPress = () => {
     navigation.goBack();
+  };
+
+  const handleProfilePress = () => {
+    navigation.navigate('Profile', { idUserName: userData.idUserName });
   };
 
   const handleLikePress = () => {
@@ -87,17 +98,16 @@ const PostDetails = ({ route, navigation }) => {
   };
 
   if (isLoading) {
-    return <Text>Carregando...</Text>;
+    return <View style={styles.container}><Text>Carregando...</Text></View>;
   }
 
   if (error) {
-    return <Text>Erro: {error}</Text>;
+    return <View style={styles.container}><Text>Erro: {error}</Text></View>;
   }
 
-  if (!postData) {
-    return <Text>Nenhum dado encontrado</Text>;
+  if (!postData || !userData) {
+    return <View style={styles.container}><Text>Nenhum dado encontrado</Text></View>;
   }
-
 
   return (
     <ScrollView style={styles.container}>
@@ -106,17 +116,17 @@ const PostDetails = ({ route, navigation }) => {
         <Text style={styles.backButtonText}>Voltar</Text>
       </TouchableOpacity>
 
-      <View style={styles.header}>
-        <Image
-          style={styles.profilePicture}
-          source={{ uri: postData.imageOfUserProfileUri }}
-        />
-        <View style={styles.userInfo}>
-          <Text style={styles.userName}>{postData.nameUser}</Text>
-          <Text style={styles.userHandle}>@{postData.idUserName}</Text>
-          <Text style={styles.timestampText}>{postData.timestampText}</Text>
-        </View>
-      </View>
+      <TouchableOpacity onPress={handleProfilePress} style={styles.header}>
+  <Image
+    style={styles.profilePicture}
+    source={{ uri: userData.imageOfUserProfileUri }}
+  />
+  <View style={styles.userInfo}>
+    <Text style={styles.userName}>{userData.nameUser}</Text>
+    <Text style={styles.userHandle}>@{userData.idUserName}</Text>
+    <Text style={styles.timestampText}>{postData.timestampText}</Text>
+  </View>
+</TouchableOpacity>
 
       <Text style={styles.content}>{postData.contentPost}</Text>
 
@@ -127,22 +137,27 @@ const PostDetails = ({ route, navigation }) => {
           actionCount={postData.commentsCount}
           onPress={handleCommentPress}
         />
-        <ActionIcon
+        {/** 
+         <ActionIcon
           iconName="repeat"
           iconColor="gray"
           actionCount={postData.commentsCount}
         />
+        */}
+        
         <ActionIcon
           iconName={isLiked ? "heart" : "heart-outline"}
           iconColor={isLiked ? "red" : "gray"}
           actionCount={likesCount.toString()}
           onPress={handleLikePress}
         />
-        <MaterialCommunityIcons
+         {/** 
+          * <MaterialCommunityIcons
           name="share-variant-outline"
           color="gray"
           size={20}
-        />
+        />*/}
+        
       </View>
 
       {showCommentField && (

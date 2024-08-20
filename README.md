@@ -84,7 +84,7 @@ Papacapim permite que os usuários publiquem postagens curtas, compartilhem imag
      3. Com o emulador em execução, execute o comando `adb devices` para verificar se o emulador foi detectado corretamente.
      4. Inicie o aplicativo no emulador com o comando:
         ```bash
-        npx react-native run-android
+        npx expo start --android
         ```
         Ou digite `A` no terminal.
      5. O aplicativo será compilado e executado no emulador Android.

@@ -110,8 +110,6 @@ Desenvolvido por Diogo Mascarenhas durante a disciplina de Desenvolvimento Mobil
 
 ## Telas
 
-<h2>Telas Atuais</h2>
-
 <div style="display: flex; overflow-x: auto;">
    <img src="https://github.com/user-attachments/assets/a7a612d7-fa8f-4b3e-9daa-db58b180c9e3" alt="Tela 1" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/e58932d0-e06e-48c9-beae-55e691f55895" alt="Tela 2" style="height: 500px; margin-right: 10px;">

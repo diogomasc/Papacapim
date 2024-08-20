@@ -1,15 +1,15 @@
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Alert,
   Animated,
   BackHandler,
   Dimensions,
+  Easing,
   FlatList,
   Modal,
   StyleSheet,
-  Easing,
   View,
 } from "react-native";
-import React, { useState, useEffect, useCallback } from "react";
 import { DummyData, DummyUserAuthSession } from "../../DummyData/DummyData";
 import Header from "../../components/Header";
 import IconNewPost from "../../components/IconNewPost";
@@ -55,7 +55,12 @@ const Home = ({ navigation }) => {
       return true;
     }
     return false;
-  }, [isNewPostVisible, isSidebarVisible, handleCloseNewPost, handleCloseSidebar]);
+  }, [
+    isNewPostVisible,
+    isSidebarVisible,
+    handleCloseNewPost,
+    handleCloseSidebar,
+  ]);
 
   useEffect(() => {
     const backHandler = BackHandler.addEventListener(
@@ -95,7 +100,11 @@ const Home = ({ navigation }) => {
     setIsNewPostVisible(false);
   }, []);
 
-  const handleAttachImage = useCallback(() => {}, []);
+  const handleAttachImage = useCallback(() => { }, []);
+
+  const handlePostPress = (postId, openCommentField) => {
+    navigation.navigate("PostDetails", { postId, openCommentField });
+  };
 
   return (
     <View style={styles.container}>
@@ -112,9 +121,7 @@ const Home = ({ navigation }) => {
             timestampText={item.timestampText}
             likesCount={item.likesCount}
             commentsCount={item.commentsCount}
-            onPress={(postId, showCommentInput) =>
-              navigation.navigate('PostDetails', { postId, showCommentInput })
-            }
+            onPress={handlePostPress}
           />
         )}
       />

@@ -1,7 +1,6 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { useNavigation } from "@react-navigation/native";
 import ActionIcon from "./ActionIcon";
 import styles from "./styles";
 
@@ -19,7 +18,9 @@ const PostItem = ({
   onPress,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(parseInt(initialLikesCount));
+  const [likesCount, setLikesCount] = useState(
+    Number.parseInt(initialLikesCount)
+  );
   const navigation = useNavigation();
 
   const handleLikePress = (event) => {
@@ -34,63 +35,58 @@ const PostItem = ({
   };
 
   const handleProfilePress = () => {
-    navigation.navigate('Profile', { idUserName: idUserName });
+    navigation.navigate("Profile", { idUserName: idUserName });
   };
 
-    return (
-      <TouchableOpacity 
-        style={styles.card} 
-        onPress={() => onPress(id, false)}
+  return (
+    <TouchableOpacity style={styles.card} onPress={() => onPress(id, false)}>
+
+      <TouchableOpacity
+        style={styles.profileWrapper}
+        onPress={handleProfilePress}
       >
-        <TouchableOpacity style={styles.profileWrapper} onPress={handleProfilePress}>
-          <Image
-            style={styles.profilePicture}
-            source={imageOfUserProfileUri ? { uri: imageOfUserProfileUri } : DefaultUserIcon}
-          />
-        </TouchableOpacity>
-        <View style={styles.contentWrapper}>
-          <TouchableOpacity style={styles.header} onPress={handleProfilePress}>
-            <View style={styles.userInfo}>
-              <Text style={styles.userName}>{nameUser}</Text>
-              <Text style={styles.userHandle}>@{idUserName}</Text>
-              <Text style={styles.timestampText}>{timestampText}</Text>
-            </View>
-          </TouchableOpacity>
-          {/**
-          <MaterialCommunityIcons name="dots-vertical" color="gray" size={20} />
-          **/} 
-          <View style={styles.postItemContent}>
-            <Text style={styles.postItemBody}>{contentPost}</Text>
+        <Image
+          style={styles.profilePicture}
+          source={
+            imageOfUserProfileUri
+              ? { uri: imageOfUserProfileUri }
+              : DefaultUserIcon
+          }
+        />
+      </TouchableOpacity>
+
+      <View style={styles.contentWrapper}>
+
+        <TouchableOpacity style={styles.header} onPress={handleProfilePress}>
+          <View style={styles.userInfo}>
+            <Text style={styles.userName}>{nameUser}</Text>
+            <Text style={styles.userHandle}>@{idUserName}</Text>
+            <Text style={styles.timestampText}>{timestampText}</Text>
           </View>
+        </TouchableOpacity>
+
+        <View style={styles.postItemContent}>
+          <Text style={styles.postItemBody}>{contentPost}</Text>
+        </View>
+
         <View style={styles.actionButtons}>
+
           <ActionIcon
             iconName="message-reply-outline"
             iconColor="gray"
             actionCount={commentsCount}
             onPress={handleCommentPress}
           />
-          {/**
-          <ActionIcon
-            iconName="repeat"
-            iconColor="gray"
-            actionCount={commentsCount}
-          />
-          **/} 
           <ActionIcon
             iconName={isLiked ? "heart" : "heart-outline"}
             iconColor={isLiked ? "red" : "gray"}
             actionCount={likesCount.toString()}
             onPress={handleLikePress}
           />
-          {/** 
-          <MaterialCommunityIcons
-            name="share-variant-outline"
-            color="gray"
-            size={20}
-          />
-          **/} 
         </View>
+
       </View>
+
     </TouchableOpacity>
   );
 };

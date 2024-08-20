@@ -40,32 +40,35 @@ const NewPostModal = ({ isVisible, onClose, onPublish, onAttachImage }) => {
               <Text style={styles.backButtonText}>Voltar</Text>
             </TouchableOpacity>
             <TouchableOpacity
-  onPress={handlePublish}
-  disabled={postMessage.trim().length === 0}
-  style={styles.submitButton}
->
-  <Text
-    style={[
-      styles.submitButtonText,
-      {
-        color: postMessage.trim().length > 0 ? "#2F80ED" : "#9E9E9E",
-      },
-    ]}
-  >
-    Enviar
-  </Text>
-  <FontAwesome5
-    name="paper-plane"
-    size={20}
-    color={postMessage.trim().length > 0 ? "#2F80ED" : "#9E9E9E"}
-  />
-</TouchableOpacity>
-
-
+              onPress={handlePublish}
+              disabled={postMessage.trim().length === 0}
+              style={styles.submitButton}
+            >
+              <Text
+                style={[
+                  styles.submitButtonText,
+                  {
+                    color:
+                      postMessage.trim().length > 0 ? "#2F80ED" : "#9E9E9E",
+                  },
+                ]}
+              >
+                Enviar
+              </Text>
+              <FontAwesome5
+                name="paper-plane"
+                size={20}
+                color={postMessage.trim().length > 0 ? "#2F80ED" : "#9E9E9E"}
+              />
+            </TouchableOpacity>
           </View>
           <View style={styles.postContent}>
             <Image
-              source={userProfileImageUri ? { uri: userProfileImageUri } : DefaultUserIcon}
+              source={
+                userProfileImageUri
+                  ? { uri: userProfileImageUri }
+                  : DefaultUserIcon
+              }
               style={styles.userImage}
             />
             <TextInput
@@ -77,11 +80,6 @@ const NewPostModal = ({ isVisible, onClose, onPublish, onAttachImage }) => {
               onChangeText={setPostMessage}
             />
           </View>
-          {/**
-          <TouchableOpacity style={styles.attachButton} onPress={onAttachImage}>
-            <FontAwesome5 name="image" size={20} color="#2F80ED" />
-          </TouchableOpacity>
-          **/} 
         </View>
       </View>
     </Modal>

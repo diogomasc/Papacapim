@@ -1,53 +1,58 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet, TextInput, View, Text } from "react-native";
 
 const TextInputFieldSettings = ({
-	label,
-	value,
-	onChangeText,
-	placeholder,
-	secureTextEntry = false,
-	editable = true,
-	multiline = false,
-	numberOfLines = 1,
-	placeholderTextColor = "#6B6572",
-	containerStyle,
-	inputStyle,
-	labelStyle,
+  label,
+  value,
+  onChangeText,
+  placeholder,
+  secureTextEntry,
+  editable = true,
+  multiline = false,
+  numberOfLines,
+  containerStyle,
+  ...props
 }) => {
-	return (
-		<View style={[styles.container, containerStyle]}>
-			{label && <Text style={[styles.label, labelStyle]}>{label}</Text>}
-			<TextInput
-				style={[styles.input, inputStyle]}
-				value={value}
-				onChangeText={onChangeText}
-				placeholder={placeholder}
-				secureTextEntry={secureTextEntry}
-				editable={editable}
-				multiline={multiline}
-				numberOfLines={numberOfLines}
-				placeholderTextColor={placeholderTextColor}
-			/>
-		</View>
-	);
+  return (
+    <View style={[styles.container, containerStyle]}>
+      {label && <Text style={styles.label}>{label}</Text>}
+      <TextInput
+        style={[styles.input, multiline && styles.textArea]}
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        secureTextEntry={secureTextEntry}
+        editable={editable}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
+        {...props}
+      />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
-	container: {
-		marginBottom: 12,
-	},
-	label: {
-		fontSize: 16,
-		marginBottom: 8,
-		color: "#FFFFFF",
-	},
-	input: {
-		borderBottomWidth: 1,
-		height: 40,
-		fontSize: 14,
-		color: "#FFFFFF",
-	},
+  container: {
+    marginBottom: 16,
+  },
+  label: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    marginBottom: 8,
+  },
+  input: {
+    backgroundColor: "#2C2C2C",
+    color: "#FFFFFF",
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+  },
+  textArea: {
+    color: "#FFFFFF",
+    minHeight: 100,
+    maxHeight: 200,
+    textAlignVertical: "top",
+  },
 });
 
 export default TextInputFieldSettings;

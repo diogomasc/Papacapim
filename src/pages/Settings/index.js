@@ -1,17 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
 import {
+  Alert,
   Image,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  Alert,
 } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 import { DummyUserAuthSession } from "../../DummyData/DummyData";
 import TextInputFieldSettings from "../../components/TextInputFieldSettings";
+import styles from "./styles";
 
 const Settings = () => {
   const navigation = useNavigation();
@@ -21,10 +22,8 @@ const Settings = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   useEffect(() => {
-    // Simula a busca dos dados do usuário autenticado
     const fetchUserData = async () => {
       try {
-        // Aqui você normalmente faria uma chamada API
         const user = DummyUserAuthSession[0];
         if (user) {
           setUserData(user);
@@ -41,7 +40,6 @@ const Settings = () => {
   }, []);
 
   const handleUpdate = () => {
-    // Aqui você normalmente enviaria os dados atualizados para o backend
     console.log("Dados atualizados:", userData);
     Alert.alert("Sucesso", "Dados atualizados com sucesso!");
   };
@@ -51,7 +49,7 @@ const Settings = () => {
       Alert.alert("Erro", "As senhas não coincidem");
       return;
     }
-    // Aqui você normalmente enviaria a nova senha para o backend
+
     console.log("Senha alterada");
     Alert.alert("Sucesso", "Senha alterada com sucesso!");
   };
@@ -62,15 +60,19 @@ const Settings = () => {
       "Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.",
       [
         { text: "Cancelar", style: "cancel" },
-        { 
-          text: "Excluir", 
+        {
+          text: "Excluir",
           onPress: () => {
-            // Aqui você normalmente enviaria uma requisição para excluir a conta no backend
             console.log("Conta excluída");
-            Alert.alert("Conta excluída", "Sua conta foi excluída com sucesso.");
-            navigation.navigate("Login"); // Supondo que você tenha uma tela de login
+            Alert.alert(
+              "Conta excluída",
+              "Sua conta foi excluída com sucesso."
+            );
+            setTimeout(() => {
+              navigation.navigate("Welcome");
+            }, 300);
           },
-          style: "destructive"
+          style: "destructive",
         },
       ]
     );
@@ -144,7 +146,6 @@ const Settings = () => {
           onChangeText={(text) => setUserData({ ...userData, biography: text })}
           multiline
           numberOfLines={4}
-          containerStyle={styles.textArea}
         />
 
         <TextInputFieldSettings
@@ -196,9 +197,7 @@ const Settings = () => {
           label="Website:"
           value={userData.webSite}
           placeholder="Website"
-          onChangeText={(text) =>
-            setUserData({ ...userData, webSite: text })
-          }
+          onChangeText={(text) => setUserData({ ...userData, webSite: text })}
         />
 
         <TouchableOpacity
@@ -226,14 +225,15 @@ const Settings = () => {
           onChangeText={setNewPassword}
         />
         <TextInputFieldSettings
-          label="Confirmação da Nova Senha:"
+          label="Confirmar Nova Senha:"
           value={confirmPassword}
-          placeholder="Confirme Nova Senha"
+          placeholder="Confirmar Nova Senha"
           secureTextEntry
           onChangeText={setConfirmPassword}
         />
+
         <TouchableOpacity
-          style={[styles.button, { backgroundColor: "#E2B93B" }]}
+          style={[styles.button, { backgroundColor: "#2F80ED" }]}
           onPress={handleChangePassword}
         >
           <Text style={styles.buttonText}>Alterar Senha</Text>
@@ -242,7 +242,7 @@ const Settings = () => {
         <View style={styles.divider} />
 
         <TouchableOpacity
-          style={[styles.button, { backgroundColor: "#EB5757" }]}
+          style={[styles.button, { backgroundColor: "#E74C3C" }]}
           onPress={handleDeleteAccount}
         >
           <Text style={styles.buttonText}>Excluir Conta</Text>
@@ -251,76 +251,5 @@ const Settings = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: "#101010",
-	},
-	backButton: {
-		flexDirection: "row",
-		alignItems: "center",
-		padding: 16,
-	},
-	backButtonText: {
-		color: "#2F80ED",
-		fontSize: 16,
-		marginLeft: 8,
-	},
-	profileContainer: {
-		flexDirection: "row",
-		alignItems: "center",
-		padding: 16,
-		backgroundColor: "#101010",
-	},
-	profileImage: {
-		height: 35,
-		width: 35,
-		borderRadius: 15,
-		marginLeft: 15,
-		resizeMode: "cover",
-	},
-	userName: {
-		color: "#FFFFFF",
-		fontSize: 18,
-		marginLeft: 10,
-	},
-	containerForm: {
-		backgroundColor: "#101010",
-		flex: 1,
-		paddingStart: "5%",
-		paddingEnd: "5%",
-		paddingBottom: 20,
-		borderTopLeftRadius: 25,
-		borderTopRightRadius: 25,
-	},
-	disabledInput: {
-		opacity: 0.5,
-	},
-	textArea: {
-		maxHeight: 120,
-	},
-	message: {
-		color: "#FFFFFF",
-		fontSize: 18,
-		marginBottom: 8,
-	},
-	button: {
-		backgroundColor: "#2F80ED",
-		borderRadius: 10,
-		paddingVertical: 12,
-		alignItems: "center",
-		marginBottom: 12,
-	},
-	buttonText: {
-		color: "#FFFFFF",
-		fontSize: 16,
-	},
-	divider: {
-		height: 1,
-		backgroundColor: "#444444",
-		marginVertical: 16,
-	},
-});
 
 export default Settings;

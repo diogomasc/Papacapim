@@ -1,27 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Image,
   Keyboard,
   ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import { DummyData, DummyDataUser, DummyUserAuthSession } from "../../DummyData/DummyData";
+import {
+  DummyComments,
+  DummyData,
+  DummyDataUser,
+  DummyUserAuthSession,
+} from "../../DummyData/DummyData";
 import styles from "./styles";
 
 const PostDetails = ({ route, navigation }) => {
-  const { postId } = route.params;
+  const { postId, fromProfile, openCommentField } = route.params;
   const [postData, setPostData] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
-  const [showCommentField, setShowCommentField] = useState(false);
+  const [showCommentField, setShowCommentField] = useState(
+    openCommentField || false
+  );
   const [comment, setComment] = useState("");
   const [commentInputHeight, setCommentInputHeight] = useState(40);
 
@@ -31,16 +40,18 @@ const PostDetails = ({ route, navigation }) => {
     const fetchPostData = async () => {
       try {
         setIsLoading(true);
-        const post = DummyData.find(post => post.id === postId);
+        const post = DummyData.find((post) => post.id === postId);
         if (post) {
           setPostData(post);
-          setLikesCount(parseInt(post.likesCount));
+          setLikesCount(Number.parseInt(post.likesCount));
           const user = DummyDataUser[post.idUserName];
           if (user) {
             setUserData(user);
           } else {
             throw new Error("Usuário não encontrado");
           }
+          const postComments = DummyComments[postId] || [];
+          setComments(postComments);
         } else {
           throw new Error("Post não encontrado");
         }
@@ -50,9 +61,23 @@ const PostDetails = ({ route, navigation }) => {
         setIsLoading(false);
       }
     };
-  
+
     fetchPostData();
-  }, [postId]);
+
+    if (openCommentField) {
+      setTimeout(() => {
+        setShowCommentField(true);
+      }, 300);
+    }
+  }, [postId, openCommentField]);
+
+  const handleBackPress = useCallback(() => {
+    if (fromProfile) {
+      navigation.goBack();
+    } else {
+      navigation.navigate("Profile", { idUserName: postData.idUserName });
+    }
+  }, [navigation, fromProfile, postData]);
 
   useEffect(() => {
     const hideKeyboard = Keyboard.addListener("keyboardDidHide", () => {
@@ -64,17 +89,13 @@ const PostDetails = ({ route, navigation }) => {
     };
   }, []);
 
-  const handleBackPress = () => {
-    navigation.goBack();
-  };
-
   const handleProfilePress = () => {
-    navigation.navigate('Profile', { idUserName: userData.idUserName });
+    navigation.navigate("Profile", { idUserName: userData.idUserName });
   };
 
   const handleLikePress = () => {
     setIsLiked(!isLiked);
-    setLikesCount(prevCount => isLiked ? prevCount - 1 : prevCount + 1);
+    setLikesCount((prevCount) => (isLiked ? prevCount - 1 : prevCount + 1));
   };
 
   const handleCommentPress = () => {
@@ -98,15 +119,27 @@ const PostDetails = ({ route, navigation }) => {
   };
 
   if (isLoading) {
-    return <View style={styles.container}><Text>Carregando...</Text></View>;
+    return (
+      <View style={styles.container}>
+        <Text>Carregando...</Text>
+      </View>
+    );
   }
 
   if (error) {
-    return <View style={styles.container}><Text>Erro: {error}</Text></View>;
+    return (
+      <View style={styles.container}>
+        <Text>Erro: {error}</Text>
+      </View>
+    );
   }
 
   if (!postData || !userData) {
-    return <View style={styles.container}><Text>Nenhum dado encontrado</Text></View>;
+    return (
+      <View style={styles.container}>
+        <Text>Nenhum dado encontrado</Text>
+      </View>
+    );
   }
 
   return (
@@ -117,16 +150,16 @@ const PostDetails = ({ route, navigation }) => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleProfilePress} style={styles.header}>
-  <Image
-    style={styles.profilePicture}
-    source={{ uri: userData.imageOfUserProfileUri }}
-  />
-  <View style={styles.userInfo}>
-    <Text style={styles.userName}>{userData.nameUser}</Text>
-    <Text style={styles.userHandle}>@{userData.idUserName}</Text>
-    <Text style={styles.timestampText}>{postData.timestampText}</Text>
-  </View>
-</TouchableOpacity>
+        <Image
+          style={styles.profilePicture}
+          source={{ uri: userData.imageOfUserProfileUri }}
+        />
+        <View style={styles.userInfo}>
+          <Text style={styles.userName}>{userData.nameUser}</Text>
+          <Text style={styles.userHandle}>@{userData.idUserName}</Text>
+          <Text style={styles.timestampText}>{postData.timestampText}</Text>
+        </View>
+      </TouchableOpacity>
 
       <Text style={styles.content}>{postData.contentPost}</Text>
 
@@ -137,27 +170,12 @@ const PostDetails = ({ route, navigation }) => {
           actionCount={postData.commentsCount}
           onPress={handleCommentPress}
         />
-        {/** 
-         <ActionIcon
-          iconName="repeat"
-          iconColor="gray"
-          actionCount={postData.commentsCount}
-        />
-        */}
-        
         <ActionIcon
           iconName={isLiked ? "heart" : "heart-outline"}
           iconColor={isLiked ? "red" : "gray"}
           actionCount={likesCount.toString()}
           onPress={handleLikePress}
         />
-         {/** 
-          * <MaterialCommunityIcons
-          name="share-variant-outline"
-          color="gray"
-          size={20}
-        />*/}
-        
       </View>
 
       {showCommentField && (
@@ -165,7 +183,7 @@ const PostDetails = ({ route, navigation }) => {
           <TextInput
             style={[styles.commentInput, { height: commentInputHeight }]}
             placeholder="Escreva um comentário..."
-            placeholderTextColor="gray"
+            placeholderTextColor="white"
             value={comment}
             onChangeText={handleCommentChange}
             multiline
@@ -186,6 +204,16 @@ const PostDetails = ({ route, navigation }) => {
       )}
 
       <View style={styles.separator} />
+
+      <View style={styles.commentsSection}>
+        <Text style={styles.commentsSectionTitle}>Comentários: </Text>
+        {comments.map((comment) => (
+          <View key={comment.id} style={styles.commentCard}>
+            <Text style={styles.commentUser}>{comment.idUserName}</Text>
+            <Text style={styles.commentContent}>{comment.content}</Text>
+          </View>
+        ))}
+      </View>
     </ScrollView>
   );
 };

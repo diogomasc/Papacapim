@@ -16,27 +16,6 @@ const SideBarModal = ({ isVisible, onClose, translateX }) => {
   const navigation = useNavigation();
   const user = useMemo(() => DummyUserAuthSession[0], []);
 
-  {/**
-  const handleProfilePress = useCallback(() => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-    onClose?.();
-    console.log('user.idUserName:', user.idUserName);
-    setTimeout(() => {
-      if (user.idUserName) {
-        navigation.navigate("Profile", { idUserName: user.idUserName });
-      } else {
-        console.error("user.idUserName is undefined");
-      }
-    }, 300);
-  }, [navigation, onClose, user.idUserName]);
-  */}
-
-  {/**
-  const handleProfilePress = useCallback(() => {
-    navigation.navigate("Profile", { idUserName: user.idUserName });
-  }, [navigation, user.idUserName]);
-  */}
-
   const handleProfilePress = useCallback(() => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     onClose?.();
@@ -52,8 +31,6 @@ const SideBarModal = ({ isVisible, onClose, translateX }) => {
       navigation.navigate("Settings");
     }, 300);
   }, [navigation, onClose]);
-
-
 
   return (
     <TouchableOpacity
@@ -99,6 +76,5 @@ const SideBarModal = ({ isVisible, onClose, translateX }) => {
     </TouchableOpacity>
   );
 };
-
 
 export default SideBarModal;

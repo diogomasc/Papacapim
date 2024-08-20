@@ -108,16 +108,25 @@ Papacapim está em constante desenvolvimento. Esta versão é uma prova de conce
 
 Desenvolvido por Diogo Mascarenhas durante a disciplina de Desenvolvimento Mobile 2024.1 - IFBA.
 
-## Telas Atuais
+## Telas
+
+<h2>Telas Atuais</h2>
 
 <div style="display: flex; overflow-x: auto;">
-   <img src="https://github.com/user-attachments/assets/14d75393-7caa-4478-bbe1-1160b75f4562" alt="Tela 1" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/497e7d6e-e2fc-4dd4-9625-59d79cac88e8" alt="Tela 2" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/cea22855-c451-4735-912a-f41a7477534c" alt="Tela 3" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/3be21dd6-19bf-4c7a-82a3-ebec66666398" alt="Tela 4" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/4e248a57-445a-40d6-acda-1ac039578a40" alt="Tela 5" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/4d7f6070-2bd9-4be2-8b8d-bfb4be054102" alt="Tela 6" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/0007e7a8-9c74-4473-b9c6-6c6f48a0147a" alt="Tela 7" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/ff0b5a2a-3b18-4244-8506-01d9502334be" alt="Tela 8" style="height: 500px;">
+   <img src="https://github.com/user-attachments/assets/a7a612d7-fa8f-4b3e-9daa-db58b180c9e3" alt="Tela 1" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/e58932d0-e06e-48c9-beae-55e691f55895" alt="Tela 2" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/ab4e0898-7c5a-4f05-91dc-0904933e120e" alt="Tela 3" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/861a433a-c47b-4b50-9aef-c496e83ac893" alt="Tela 4" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/508ec6ea-3f58-409a-82f6-6d99bf32c9d9" alt="Tela 5" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/825312f2-71c2-4c96-a7db-44557054aa71" alt="Tela 6" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/3487bca1-41fa-4b5c-a208-b189e99720a8" alt="Tela 7" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/fb506914-f876-4929-81ca-6f619cd576f2" alt="Tela 8" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/65fd7940-6259-4ec7-8015-9f4d14690c50" alt="Tela 9" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/4ce08b71-cd92-4e66-8805-39275c31d714" alt="Tela 10" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/438d6119-5143-4c2a-b1f9-dc53285eaf39" alt="Tela 11" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/88e38c81-ac87-4f43-90f3-d39804047262" alt="Tela 12" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/941e444f-0cda-47db-816f-d2668e38ae39" alt="Tela 13" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/0c7e60d7-7880-438f-ac5e-321bb06f4826" alt="Tela 14" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/064b5dbd-297a-4bb7-9a4a-1a06c62b2b35" alt="Tela 15" style="height: 500px;">
 </div>
 

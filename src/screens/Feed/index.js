@@ -44,12 +44,12 @@ export default function Feed() {
           ? `/posts?search=${encodeURIComponent(query.trim())}`
           : `/posts?page=${pageToFetch}`;
 
-        endpoint += "&exclude_replies=1";
-
         const response = await api.get(endpoint);
         const data = response.data;
 
-        const likePromises = data.map((post) =>
+        const mainPosts = data.filter((post) => post.post_id === null);
+
+        const likePromises = mainPosts.map((post) =>
           api
             .get(`/posts/${post.id}/likes`)
             .then((res) => ({ postId: post.id, likes: res.data }))
@@ -70,10 +70,10 @@ export default function Feed() {
         }));
 
         if (query) {
-          setPosts(data);
+          setPosts(mainPosts);
         } else {
           setPosts((prevPosts) =>
-            pageToFetch === 0 ? data : [...prevPosts, ...data]
+            pageToFetch === 0 ? mainPosts : [...prevPosts, ...mainPosts]
           );
         }
       } catch (error) {

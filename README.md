@@ -96,17 +96,17 @@ Papacapim permite que os usuários publiquem postagens curtas, curtam, comentem 
    <img src="https://github.com/user-attachments/assets/280f917e-017a-4fd1-9e89-75ae23e7227e" alt="Tela 1" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/44365f3a-da8f-441b-ba95-0f25baf80465" alt="Tela 2" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/2d3c20d9-d905-480f-b67b-64556b3a1523" alt="Tela 3" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/3ae5ef16-638a-4dad-8ced-935238155772" alt="Tela 4" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/ffb0a7f4-a715-4271-9e3c-6c6207814ea7" alt="Tela 5" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/b2c45222-3990-43c5-a8a9-c536f5baadd5" alt="Tela 6" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/3c3cc2bc-c620-456b-928a-7c1b9c8d559f" alt="Tela 4" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/b3203455-25e5-4ae0-ae7d-5642b91bffbc" alt="Tela 5" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/68b52c56-a7e6-448f-bee4-f6cc7e36d75e" alt="Tela 6" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/9ed99880-02cd-40cf-9338-006991de2c12" alt="Tela 7" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/eeb24816-dbf5-4ddb-9dd8-8785909ed991" alt="Tela 8" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/c12ae398-a6e9-4dcd-b079-7c29f25281a3" alt="Tela 9" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/bc81908e-5b11-4730-86e5-55d48263bca5" alt="Tela 10" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/d0bdda11-9b79-4d66-b5c1-f9b22c693cc0" alt="Tela 11" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/b9f21cbe-dd3a-4abe-80b7-b9a8a2c7a285" alt="Tela 12" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/ffa93bd1-5a1f-4173-a713-136e8e2fc8df" alt="Tela 13" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/932ffebe-a6ea-4693-a121-df48b9847ac2" alt="Tela 14" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/b3203455-25e5-4ae0-ae7d-5642b91bffbc" alt="Tela 13" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/e6f452e4-2964-430b-b54b-b8e3d644d3c8" alt="Tela 14" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/5e87488c-35e2-4b3c-8db6-4478ec12024b" alt="Tela 15" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/ee847f73-6919-4a89-b1eb-1b15e93c4e12" alt="Tela 16" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/cfc63a83-e3b7-4110-a3a5-21acacc9ffc5" alt="Tela 17" style="height: 500px; margin-right: 10px;">
@@ -115,10 +115,8 @@ Papacapim permite que os usuários publiquem postagens curtas, curtam, comentem 
    <img src="https://github.com/user-attachments/assets/f120fc2f-7a51-4fc2-97ee-df7aa165785a" alt="Tela 20" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/65669fc9-57a2-426d-b1da-6e105acd69c6" alt="Tela 21" style="height: 500px; margin-right: 10px;">
    <img src="https://github.com/user-attachments/assets/76f51f40-2aa3-45cd-9f26-518ab4d33112" alt="Tela 22" style="height: 500px; margin-right: 10px;">
-   <img src="https://github.com/user-attachments/assets/5b07a446-6e92-4bce-9e9e-39792cdbbbae" alt="Tela 23" style="height: 500px; margin-right: 10px;">
+   <img src="https://github.com/user-attachments/assets/2eec8af7-0878-4250-9937-f094e478f0e9" alt="Tela 23" style="height: 500px; margin-right: 10px;">
 </div>
-
-
 
 ## Licença
 

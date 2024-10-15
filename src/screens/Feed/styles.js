@@ -31,18 +31,6 @@ export default StyleSheet.create({
   newPostButton: {
     position: "absolute",
     right: 20,
-    bottom: 100,
-    backgroundColor: "#2F80ED",
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
-    elevation: 5,
-  },
-  refreshButton: {
-    position: "absolute",
-    right: 20,
     bottom: 20,
     backgroundColor: "#2F80ED",
     width: 60,

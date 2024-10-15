@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   View,
   FlatList,
@@ -6,6 +6,7 @@ import {
   TextInput,
   ActivityIndicator,
   Alert,
+  RefreshControl,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
@@ -27,6 +28,7 @@ export default function Feed() {
   const [isFetching, setIsFetching] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [likedPosts, setLikedPosts] = useState({});
+  const [refreshing, setRefreshing] = useState(false);
   const navigation = useNavigation();
   const { user } = useAuth();
 
@@ -42,7 +44,7 @@ export default function Feed() {
 
         let endpoint = query
           ? `/posts?search=${encodeURIComponent(query.trim())}`
-          : `/posts?page=${pageToFetch}`;
+          : `/posts?page=${pageToFetch}&per_page=25`;
 
         const response = await api.get(endpoint);
         const data = response.data;
@@ -88,6 +90,7 @@ export default function Feed() {
       } finally {
         setLoading(false);
         setIsFetching(false);
+        setRefreshing(false);
       }
     },
     [user]
@@ -107,6 +110,7 @@ export default function Feed() {
   );
 
   const handleRefresh = useCallback(() => {
+    setRefreshing(true);
     setPage(0);
     setPosts([]);
     setHasError(false);
@@ -230,6 +234,9 @@ export default function Feed() {
         onEndReached={loadMorePosts}
         onEndReachedThreshold={0.1}
         ListFooterComponent={renderFooter}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
+        }
       />
       <PostDetails
         post={selectedPost}
@@ -244,9 +251,6 @@ export default function Feed() {
         onPress={() => navigation.navigate("NewPost")}
       >
         <Feather name="plus" size={24} color="#fff" />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.refreshButton} onPress={handleRefresh}>
-        <Feather name="refresh-cw" size={24} color="#fff" />
       </TouchableOpacity>
     </View>
   );
